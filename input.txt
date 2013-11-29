@@ -1,0 +1,12 @@
+    lakohaz 1 4
+	lakohaz 9 3
+	lakohaz 7 1
+
+	ember   Bela  ferfi 40 1 200
+	ember   Eva   no    30 1 300
+	ember   Janos ferfi 20 7 400
+
+	gyermek Anna  no    10 1 20  Bela Eva
+
+	uzlet 4 400 1 Bela
+	uzlet 6 100 2 Eva Janos
