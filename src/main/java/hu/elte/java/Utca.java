@@ -1,10 +1,10 @@
 package hu.elte.java;
 
+import hu.elte.java.emberek.Ember;
+import hu.elte.java.emberek.Gyermek;
 import hu.elte.java.epuletek.Haz;
 import hu.elte.java.epuletek.Lakohaz;
 import hu.elte.java.epuletek.Uzlet;
-import hu.elte.java.emberek.Ember;
-import hu.elte.java.emberek.Gyermek;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,7 +42,7 @@ public class Utca {
                     }
                     haz.add(persons.get(name));
                 } else {
-                       System.err.println("Nincs ilyen nevű személy: " + name);
+                    System.err.println("Nincs ilyen nevű személy: " + name);
                 }
             }
         } else {
@@ -64,7 +64,7 @@ public class Utca {
             Ember ember = persons.get(name);
             Haz haz = ember.getHouse();
             if (haz != null && haz instanceof Uzlet) {
-                Uzlet uzlet = (Uzlet)haz;
+                Uzlet uzlet = (Uzlet) haz;
                 if (uzlet.hasWorker()) {
                     if (ember instanceof Gyermek) {
                         Gyermek gyermek = (Gyermek) ember;
@@ -105,7 +105,7 @@ public class Utca {
         }
         Haz business = houses.get(number);
         if (business instanceof Uzlet) {
-            Uzlet uzlet1 = (Uzlet)business;
+            Uzlet uzlet1 = (Uzlet) business;
             uzlet1.fizetes(amount);
         } else {
             System.err.println("Az ház nem üzlet: " + number);
@@ -115,13 +115,13 @@ public class Utca {
     }
 
     public void addPerson(Ember ember) {
-        if (!persons.containsKey(ember.getName()))   {
+        if (!persons.containsKey(ember.getName())) {
             persons.put(ember.getName(), ember);
         }
     }
 
     public void kiir() {
-        for (Haz haz : houses.values()){
+        for (Haz haz : houses.values()) {
             System.out.println(haz.toString());
         }
     }
@@ -129,7 +129,7 @@ public class Utca {
     public void save(String s) {
         try {
             PrintWriter pw = new PrintWriter(new File(s));
-            for (Haz haz: houses.values()) {
+            for (Haz haz : houses.values()) {
                 if (haz instanceof Lakohaz) {
                     pw.println(haz.write());
                 }
@@ -137,14 +137,15 @@ public class Utca {
             List<Gyermek> gyermekek = new ArrayList<Gyermek>();
             for (Ember ember : persons.values()) {
                 if (ember instanceof Gyermek) {
-                       gyermekek.add((Gyermek)ember);
+                    gyermekek.add((Gyermek) ember);
                 } else {
-                    pw.println(ember.write());                }
+                    pw.println(ember.write());
+                }
             }
             for (Gyermek gyermek : gyermekek) {
-                pw.println(gyermek.write()) ;
+                pw.println(gyermek.write());
             }
-            for (Haz haz: houses.values()) {
+            for (Haz haz : houses.values()) {
                 if (haz instanceof Uzlet) {
                     pw.println(haz.write());
                 }
@@ -163,13 +164,13 @@ public class Utca {
                 houses.get(hazszam).add(ember);
             }
         }
-        for (Haz haz: houses.values()) {
+        for (Haz haz : houses.values()) {
             if (haz instanceof Uzlet) {
-                String[] nevek = ((Uzlet)haz).getWorkerNames();
-                for (String nev: nevek) {
+                String[] nevek = ((Uzlet) haz).getWorkerNames();
+                for (String nev : nevek) {
                     if (persons.containsKey(nev)) {
                         atmegy(nev, haz.getNumber());
-                        ((Uzlet)haz).addWorker(persons.get(nev));
+                        ((Uzlet) haz).addWorker(persons.get(nev));
                     }
                 }
             }

@@ -15,7 +15,6 @@ public class Ember {
     }
 
 
-
     public Ember(String name, String sex, int age, int number, int money) {
         this.name = name;
         this.nem = Nem.valueOf(sex);
@@ -33,13 +32,13 @@ public class Ember {
     }
 
     public boolean equals(Object other) {
-       if (other == null) {
-           return false;
-       }
-       if (other instanceof Ember) {
-           return name.equals(((Ember) other).getName());
-       }
-       return false;
+        if (other == null) {
+            return false;
+        }
+        if (other instanceof Ember) {
+            return name.equals(((Ember) other).getName());
+        }
+        return false;
     }
 
     public void setHouse(Haz house) {
@@ -64,6 +63,6 @@ public class Ember {
 
 
     public String write() {
-        return "ember " + name + " " + nem.toString()  + " " + age + " " + number + " " + money;
+        return "ember " + name + " " + nem.toString() + " " + age + " " + number + " " + money;
     }
 }

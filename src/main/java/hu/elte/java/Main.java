@@ -1,9 +1,9 @@
 package hu.elte.java;
 
-import hu.elte.java.epuletek.Lakohaz;
-import hu.elte.java.epuletek.Uzlet;
 import hu.elte.java.emberek.Ember;
 import hu.elte.java.emberek.Gyermek;
+import hu.elte.java.epuletek.Lakohaz;
+import hu.elte.java.epuletek.Uzlet;
 
 import java.io.*;
 
@@ -36,11 +36,11 @@ public class Main {
                     utca.addHouse(uzlet);
                 } else if (clazz == Lakohaz.class) {
                     Lakohaz lhouse = factory.getLivingHouse(line);
-                    utca.addHouse( lhouse);
+                    utca.addHouse(lhouse);
                 } else if (clazz == Ember.class) {
                     Ember ember = factory.getPerson(line);
                     utca.addPerson(ember);
-                }   else if (clazz == Gyermek.class) {
+                } else if (clazz == Gyermek.class) {
                     Ember ember = factory.getChild(line);
                     utca.addPerson(ember);
                 }

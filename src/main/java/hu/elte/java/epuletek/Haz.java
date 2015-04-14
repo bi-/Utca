@@ -11,11 +11,10 @@ public abstract class Haz {
     protected List<Ember> emberek;
 
     public Haz(int number, int max) {
-       this.number = number;
-       this.max = max;
-       this.emberek = new ArrayList<Ember>();
+        this.number = number;
+        this.max = max;
+        this.emberek = new ArrayList<Ember>();
     }
-
 
 
     public String toString() {
@@ -23,7 +22,7 @@ public abstract class Haz {
         sb.append("Házszám: " + number + ", Lakók max száma: " + max + ", Lakók jelenlegi száma: " + emberek.size());
         if (emberek.size() > 0) {
             sb.append("\n A házban vannak:");
-            for (Ember ember: emberek) {
+            for (Ember ember : emberek) {
                 sb.append("\n");
                 sb.append("  " + ember.toString());
             }
@@ -39,14 +38,14 @@ public abstract class Haz {
         return emberek.size() >= max;
     }
 
-    public  void add(Ember ember) {
+    public void add(Ember ember) {
         if (!emberek.contains(ember)) {
             emberek.add(ember);
             ember.setHouse(this);
         }
     }
 
-    public  void remove(Ember ember){
+    public void remove(Ember ember) {
         if (emberek.contains(ember)) {
             emberek.remove(ember);
         }

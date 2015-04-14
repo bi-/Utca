@@ -1,10 +1,10 @@
 package hu.elte.java;
 
 
-import hu.elte.java.epuletek.Lakohaz;
-import hu.elte.java.epuletek.Uzlet;
 import hu.elte.java.emberek.Ember;
 import hu.elte.java.emberek.Gyermek;
+import hu.elte.java.epuletek.Lakohaz;
+import hu.elte.java.epuletek.Uzlet;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,7 +21,7 @@ public class ObjectFactory {
             return Gyermek.class;
         } else if (line.matches("^\\s*uzlet.*$")) {
             return Uzlet.class;
-        }   else {
+        } else {
             return null;
         }
 
@@ -33,7 +33,7 @@ public class ObjectFactory {
             Matcher m = p.matcher(line);
             System.out.println(m);
             if (m.matches() && m.groupCount() == 2) {
-                System.out.println(m.group()) ;
+                System.out.println(m.group());
                 int number = Integer.parseInt(m.group(1));
                 int flats = Integer.parseInt(m.group(2));
                 return new Lakohaz(number, flats);
@@ -86,7 +86,7 @@ public class ObjectFactory {
                 int cassa = Integer.parseInt(m.group(2));
                 //int workers = Integer.parseInt(m.group(3));
                 String workerNames = m.group(4);
-                String [] names = workerNames.split(" ");
+                String[] names = workerNames.split(" ");
                 return new Uzlet(number, cassa, names);
             }
         }
